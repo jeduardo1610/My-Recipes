@@ -56,7 +56,7 @@
 		1D2873591F2A5F1500E325D5 /* My Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				1D28736C1F2AA46600E325D5 /* Entity */,
+				1D2873701F2AAE3800E325D5 /* Entity */,
 				1D28735A1F2A5F1500E325D5 /* AppDelegate.swift */,
 				1D28735C1F2A5F1500E325D5 /* ViewController.swift */,
 				1D28735E1F2A5F1500E325D5 /* Main.storyboard */,
@@ -67,7 +67,7 @@
 			path = "My Recipes";
 			sourceTree = "<group>";
 		};
-		1D28736C1F2AA46600E325D5 /* Entity */ = {
+		1D2873701F2AAE3800E325D5 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
 				1D28736D1F2AA48E00E325D5 /* Recipe.swift */,

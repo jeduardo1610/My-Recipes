@@ -36,15 +36,21 @@ class ViewController: UITableViewController {
     
     //MARK: - UITableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return self.recipes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let recipe: Recipe = recipes[indexPath.row]
+        let cellId: String = "recipeCellItem"
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        
+        cell.textLabel?.text = recipe.name
+        return cell
     }
     
 }
