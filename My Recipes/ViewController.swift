@@ -10,9 +10,22 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    var recipes : [Recipe] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        var recipe : Recipe = Recipe(name: "Tortilla de patatas")
+        recipes.append(recipe)
+        
+        recipe = Recipe(name: "Pizza margarita")
+        recipes.append(recipe)
+        
+        recipe = Recipe(name: "Hamburguesa con queso")
+        recipes.append(recipe)
+        
+        recipe = Recipe(name: "Ensalada Cesar")
+        recipes.append(recipe)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +33,19 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //MARK: - UITableViewDataSource
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        
+    }
 
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        <#code#>
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
 }
 
