@@ -15,16 +15,16 @@ class ViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        var recipe : Recipe = Recipe(name: "Tortilla de patatas")
+        var recipe : Recipe = Recipe(name: "Tortilla de patatas", image: #imageLiteral(resourceName: "tortilla"))
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Pizza margarita")
+        recipe = Recipe(name: "Pizza margarita", image: #imageLiteral(resourceName: "pizza"))
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Hamburguesa con queso")
+        recipe = Recipe(name: "Hamburguesa con queso", image : #imageLiteral(resourceName: "hamburguesa"))
         recipes.append(recipe)
         
-        recipe = Recipe(name: "Ensalada Cesar")
+        recipe = Recipe(name: "Ensalada Cesar", image : #imageLiteral(resourceName: "ensalada"))
         recipes.append(recipe)
     }
 
@@ -33,6 +33,10 @@ class ViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    // Hide status bar
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     //MARK: - UITableViewDataSource
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -50,6 +54,8 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         
         cell.textLabel?.text = recipe.name
+        cell.imageView?.image = recipe.image
+        
         return cell
     }
     
