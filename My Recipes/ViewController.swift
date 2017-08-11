@@ -101,6 +101,19 @@ class ViewController: UITableViewController {
         return cell
     }
     
+    //to add delete functionality
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == .delete {
+            
+            self.recipes.remove(at: indexPath.row)
+            //self.tableView.reloadData() //this will reload the whole data for table view
+            self.tableView.deleteRows(at: [indexPath], with: .fade) //this will remove the item at the exact position given for indexPath ,this may result more efficient when working with a large range of data source
+            
+        }
+        
+    }
+    
     //MARK: -UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,6 +143,7 @@ class ViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
         
     }
+    
     
 }
 
