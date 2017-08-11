@@ -83,6 +83,12 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = "\(recipe.time!) min"
         cell.ingredientsLabel.text = "Ingredientes (\(recipe.ingredients.count))"
         
+        if recipe.isFavorite {
+            cell.accessoryType = .checkmark
+        } else {
+            cell.accessoryType = .none
+        }
+        
         //rounded image view -> that easy...?
         /*
          you can do this also in the storyboard by adding untime attributes for imageView
@@ -93,6 +99,36 @@ class ViewController: UITableViewController {
         cell.thumbnailImageView.clipsToBounds = true
         */
         return cell
+    }
+    
+    //MARK: -UITableViewDelegate
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let recipe = recipes[indexPath.row]
+        
+        let alertController = UIAlertController(title: recipe.name, message: "Valora este platillo", preferredStyle: .actionSheet) //.alert to show it as alert dialog
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        var favoriteActionTitle : String = "Me gusta"
+        var alertActionStyle : UIAlertActionStyle = .default
+        if recipe.isFavorite {
+         favoriteActionTitle = "No me gusta"
+            alertActionStyle = .destructive
+        }
+        
+        let favoriteAction = UIAlertAction(title: favoriteActionTitle, style: alertActionStyle) { (action) in
+            
+            let recipe = self.recipes[indexPath.row]
+            recipe.isFavorite = !recipe.isFavorite
+            self.tableView.reloadData()//refresh the whole tableView
+            
+        }
+        
+        alertController.addAction(favoriteAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+        
     }
     
 }
