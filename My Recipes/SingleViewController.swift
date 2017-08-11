@@ -86,10 +86,10 @@ class SingleViewController: UIViewController {
         let recipe: Recipe = recipes[indexPath.row]
         let cellId: String = "recipeCellItem"
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! FullRecipeItemCell
         
-        cell.textLabel?.text = recipe.name
-        cell.imageView?.image = recipe.image
+        cell.thumbnailImageView.image = recipe.image
+        cell.nameLabel.text = recipe.name
         
         return cell
     }
