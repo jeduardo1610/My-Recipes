@@ -83,6 +83,15 @@ class ViewController: UITableViewController {
         cell.timeLabel.text = "\(recipe.time!) min"
         cell.ingredientsLabel.text = "Ingredientes (\(recipe.ingredients.count))"
         
+        //rounded image view -> that easy...?
+        /*
+         you can do this also in the storyboard by adding untime attributes for imageView
+         1.- layer.conerRadius at identity inspector
+         2.- enable "Clip to bounds" at attribute inspector
+         */
+        /*cell.thumbnailImageView.layer.cornerRadius = 42.0
+        cell.thumbnailImageView.clipsToBounds = true
+        */
         return cell
     }
     
