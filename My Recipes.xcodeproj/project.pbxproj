@@ -14,6 +14,7 @@
 		1D2873651F2A5F1500E325D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1D2873631F2A5F1500E325D5 /* LaunchScreen.storyboard */; };
 		1D28736E1F2AA48E00E325D5 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D28736D1F2AA48E00E325D5 /* Recipe.swift */; };
 		1D5273971F3CD683006B1990 /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5273961F3CD683006B1990 /* SingleViewController.swift */; };
+		1D5273991F3E0AB2006B1990 /* RecipeCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5273981F3E0AB2006B1990 /* RecipeCellItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		1D2873661F2A5F1500E325D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D28736D1F2AA48E00E325D5 /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		1D5273961F3CD683006B1990 /* SingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+		1D5273981F3E0AB2006B1990 /* RecipeCellItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeCellItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				1D2873611F2A5F1500E325D5 /* Assets.xcassets */,
 				1D2873631F2A5F1500E325D5 /* LaunchScreen.storyboard */,
 				1D2873661F2A5F1500E325D5 /* Info.plist */,
+				1D5273981F3E0AB2006B1990 /* RecipeCellItem.swift */,
 			);
 			path = "My Recipes";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D5273991F3E0AB2006B1990 /* RecipeCellItem.swift in Sources */,
 				1D28736E1F2AA48E00E325D5 /* Recipe.swift in Sources */,
 				1D28735D1F2A5F1500E325D5 /* ViewController.swift in Sources */,
 				1D5273971F3CD683006B1990 /* SingleViewController.swift in Sources */,
