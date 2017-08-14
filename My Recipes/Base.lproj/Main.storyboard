@@ -8,6 +8,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -104,12 +105,65 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SfH-j2-t7P">
-                                <rect key="frame" x="67" y="269" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mwd-DK-fgU">
+                                <rect key="frame" x="0.0" y="300" width="375" height="367"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemDetailCell" id="7RX-TG-Pyy">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7RX-TG-Pyy" id="VkC-cX-a0T">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Vf3-5N-3yi">
+                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="261" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgd-CU-Fq8">
+                                                            <rect key="frame" x="0.0" y="0.0" width="117" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzk-AS-wE5">
+                                                            <rect key="frame" x="125" y="0.0" width="234" height="27.5"/>
+                                                            <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="jzk-AS-wE5" firstAttribute="width" secondItem="Kgd-CU-Fq8" secondAttribute="width" multiplier="2" id="pOR-qK-btK"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Vf3-5N-3yi" secondAttribute="bottom" id="3ea-Fh-wnW"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Vf3-5N-3yi" secondAttribute="trailing" id="NQZ-Po-dx4"/>
+                                                <constraint firstItem="Vf3-5N-3yi" firstAttribute="leading" secondItem="VkC-cX-a0T" secondAttribute="leadingMargin" id="Sba-A1-DBm"/>
+                                                <constraint firstItem="Vf3-5N-3yi" firstAttribute="top" secondItem="VkC-cX-a0T" secondAttribute="topMargin" id="aeR-sb-iqY"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SfH-j2-t7P">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="gOW-cT-K3D"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Mwd-DK-fgU" secondAttribute="trailing" id="7lX-tH-n44"/>
+                            <constraint firstItem="SfH-j2-t7P" firstAttribute="top" secondItem="ZdZ-2d-bAe" secondAttribute="top" id="Ws5-57-Wbw"/>
+                            <constraint firstItem="Mwd-DK-fgU" firstAttribute="top" secondItem="SfH-j2-t7P" secondAttribute="bottom" id="YUA-4U-mYw"/>
+                            <constraint firstItem="Mwd-DK-fgU" firstAttribute="leading" secondItem="ZdZ-2d-bAe" secondAttribute="leading" id="boc-ro-BoT"/>
+                            <constraint firstAttribute="trailing" secondItem="SfH-j2-t7P" secondAttribute="trailing" id="h1n-Lt-4nE"/>
+                            <constraint firstAttribute="bottom" secondItem="Mwd-DK-fgU" secondAttribute="bottom" id="lrH-bd-m6W"/>
+                            <constraint firstItem="SfH-j2-t7P" firstAttribute="leading" secondItem="ZdZ-2d-bAe" secondAttribute="leading" id="uiV-Lp-Erk"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="SfH-j2-t7P" id="R6l-3a-BoE"/>
