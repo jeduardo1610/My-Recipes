@@ -88,6 +88,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Mis Recetas" id="56I-zO-EiB"/>
+                    <connections>
+                        <outlet property="headerTableView" destination="xYJ-gZ-PrW" id="aFD-xs-DgO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="53P-ss-RSH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -175,6 +178,7 @@
                     </view>
                     <connections>
                         <outlet property="detailImageView" destination="SfH-j2-t7P" id="R6l-3a-BoE"/>
+                        <outlet property="tableView" destination="Mwd-DK-fgU" id="ug1-yP-Wpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b62-LN-2lo" userLabel="First Responder" sceneMemberID="firstResponder"/>

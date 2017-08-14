@@ -11,11 +11,19 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailImageView: UIImageView!
+    
+    @IBOutlet weak var tableView: UITableView!
     var recipe : Recipe!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.tableView.backgroundColor = UIColor(red: 0.8 , green: 0.8, blue: 0.8, alpha: 0.25) //provide custom color for table view
+        
+        self.tableView.tableFooterView = UIView(frame: CGRect.zero) //provide a cero hight view to avoid showing empty cells at the end of the table
+        
+        self.tableView.separatorColor = UIColor(red: 0.4, green: 0.7, blue: 1.0, alpha: 0.5)
+        
         if let recipeImage = recipe.image{
             self.detailImageView.image = recipeImage
         }
@@ -63,6 +71,8 @@ extension DetailViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemDetailCell", for: indexPath) as! RecipeDetailItemCell
+        
+        cell.backgroundColor = UIColor.clear //delete any color over the table view
         
         switch indexPath.section {
         case 0:

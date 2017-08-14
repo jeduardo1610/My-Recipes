@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UITableViewController {
 
+    @IBOutlet var headerTableView: UITableView!
     var recipes : [Recipe] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)
         
         var recipe : Recipe = Recipe(name: "Tortilla de patatas",
                                      image: #imageLiteral(resourceName: "tortilla"),
