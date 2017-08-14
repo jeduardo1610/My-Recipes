@@ -144,7 +144,8 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let recipe = recipes[indexPath.row]
+        //Show popup to mark recipe as favorite
+        /*let recipe = recipes[indexPath.row]
         
         let alertController = UIAlertController(title: recipe.name, message: "Valora este platillo", preferredStyle: .actionSheet) //.alert to show it as alert dialog
         let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
@@ -166,7 +167,21 @@ class ViewController: UITableViewController {
         
         alertController.addAction(favoriteAction)
         alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)*/
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showRecipeDetail" {
+            
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedRecipe = self.recipes[indexPath.row]
+                let destinationViewController = segue.destination as! DetailViewController
+                destinationViewController.recipe = selectedRecipe
+            }
+            
+        }
         
     }
     
