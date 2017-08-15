@@ -57,6 +57,12 @@ class ViewController: UITableViewController {
         recipes.append(recipe)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = true
+
+    }
+    
     func printHello(_ sender : UIBarButtonItem) {
         NSLog("BarButtonAction","Completion handler Back Button")
     }

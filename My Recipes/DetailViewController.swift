@@ -32,6 +32,12 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.hidesBarsOnSwipe = false
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
     override var prefersStatusBarHidden: Bool { //to hidde or show status bar
         return true
     }
@@ -100,20 +106,10 @@ extension DetailViewController : UITableViewDataSource {
             }
         case 1:
             cell.keyLabel.text = ""
-            
-            if indexPath.row == 0{
-                cell.keyLabel.text = "Ingredientes: "
-            }
-            
             cell.valueLabel.text = self.recipe.ingredients[indexPath.row]
             
         case 2:
             cell.keyLabel.text = ""
-            
-            if indexPath.row == 0{
-                cell.keyLabel.text = "Pasos: "
-            }
-            
             cell.valueLabel.text = self.recipe.steps[indexPath.row]
             
         default:
