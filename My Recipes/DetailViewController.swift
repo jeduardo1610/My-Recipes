@@ -28,7 +28,12 @@ class DetailViewController: UIViewController {
             self.detailImageView.image = recipeImage
         }
         
+        self.title = recipe.name
         // Do any additional setup after loading the view.
+    }
+    
+    override var prefersStatusBarHidden: Bool { //to hidde or show status bar
+        return true
     }
 
     override func didReceiveMemoryWarning() {

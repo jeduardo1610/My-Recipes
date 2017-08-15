@@ -13,10 +13,10 @@ class ViewController: UITableViewController {
     @IBOutlet var headerTableView: UITableView!
     var recipes : [Recipe] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ViewController.printHello(_:))) //customize back button - here we may configure a completion handler if needed
         
         self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)
         
@@ -56,7 +56,11 @@ class ViewController: UITableViewController {
                                  "Juntar todos los ingredientes en un tazon y acompañar con salsa Cesar"])
         recipes.append(recipe)
     }
-
+    
+    func printHello(_ sender : UIBarButtonItem) {
+        NSLog("BarButtonAction","Completion handler Back Button")
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

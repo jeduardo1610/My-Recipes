@@ -266,6 +266,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VWj-vM-ZnX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <outlet property="delegate" destination="E2k-7q-n9P" id="IVy-aA-LWg"/>
+                        </connections>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
