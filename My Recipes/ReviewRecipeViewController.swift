@@ -33,7 +33,12 @@ class ReviewRecipeViewController: UIViewController {
         super.viewDidAppear(animated)
         
         //add animation
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+        /*UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+            self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil) */
+        
+        //Add spring animation with damping
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
             self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
         }, completion: nil)
     }
