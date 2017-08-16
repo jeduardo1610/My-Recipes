@@ -12,6 +12,7 @@ class ReviewRecipeViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var ratingStackView: UIStackView!
+    var ratingSelected : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,6 +57,29 @@ class ReviewRecipeViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    @IBAction func ratingPressed(_ sender: UIButton) {
+        
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.5, options: [], animations: {
+            sender.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }, completion: { _ in
+            
+            let tag : Int = sender.tag
+            switch tag {
+            case 1:
+                self.ratingSelected = "dislike"
+            case 2:
+                self.ratingSelected = "good"
+            case 3:
+                self.ratingSelected = "great"
+            default:
+                break
+            }
+            self.performSegue(withIdentifier: "unwindToDetailView", sender: sender)
+        })
+        
+    }
+    
     
     /*
     // MARK: - Navigation

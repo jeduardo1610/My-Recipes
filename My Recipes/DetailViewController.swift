@@ -14,6 +14,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     var recipe : Recipe!
+    var backButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +37,21 @@ class DetailViewController: UIViewController {
         self.title = recipe.name
         // Do any additional setup after loading the view.
         
-        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
         backButton.setBackgroundImage(UIImage(named: "rating"), for: .normal)
         backButton.addTarget(self, action: #selector(self.reviewRecipe(_:)), for: .touchUpInside)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: backButton)
+        
+        
+        if let rating = recipe.rating {
+            
+            if let ratingImage = UIImage(named: rating){
+                backButton.setBackgroundImage(ratingImage, for: .normal)
+                
+            }
+            
+        }
+        
     }
     
     func reviewRecipe(_ sender : UIBarButtonItem) {
@@ -159,6 +171,19 @@ extension DetailViewController : UITableViewDataSource {
     
     
     @IBAction func close (segue : UIStoryboardSegue) {
+        
+        if let reviewVC = segue.source as? ReviewRecipeViewController {
+            
+            if let rating = reviewVC.ratingSelected {
+                
+                if let ratingImage = UIImage(named: rating){
+                 self.recipe.rating = rating
+                 backButton.setBackgroundImage(ratingImage, for: .normal)
+                    
+                }
+            }
+            
+        }
         
     }
     
