@@ -26,6 +26,10 @@ class ReviewRecipeViewController: UIViewController {
         //Scaling stack view which contains rating buttons
         ratingStackView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
         
+        //concat transformations - scaling with transformation
+        /*let scale = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        let translation = CGAffineTransform(translationX: 0.0, y: 500.0)
+        ratingStackView.transform = scale.concatenating(translation)*/
         
     }
 
