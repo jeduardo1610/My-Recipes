@@ -24,12 +24,26 @@ class DetailViewController: UIViewController {
         
         self.tableView.separatorColor = UIColor(red: 0.4, green: 0.7, blue: 1.0, alpha: 0.5)
         
+        
+        //this two lines sets the height for each cell according with its content dynamically
+        self.tableView.estimatedRowHeight = 44.0
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        
         if let recipeImage = recipe.image{
             self.detailImageView.image = recipeImage
         }
         
         self.title = recipe.name
         // Do any additional setup after loading the view.
+        
+        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
+        backButton.setBackgroundImage(UIImage(named: "rating"), for: .normal)
+        backButton.addTarget(self, action: #selector(self.reviewRecipe(_:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
+    func reviewRecipe(_ sender : UIBarButtonItem) {
+        performSegue(withIdentifier: "reviewRecipe", sender: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +149,17 @@ extension DetailViewController : UITableViewDataSource {
             break
         }
         return title
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "reviewRecipe"{
+            _ = segue.destination as! ReviewRecipeViewController
+        }
+    }
+    
+    
+    @IBAction func close (segue : UIStoryboardSegue) {
+        
     }
     
 }

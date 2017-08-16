@@ -18,7 +18,8 @@ class ViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: #selector(ViewController.printHello(_:))) //customize back button - here we may configure a completion handler if needed
         
-        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        self.headerTableView.tableFooterView = UIView(frame: CGRect.zero)//provide a cero hight view to avoid showing empty cells at the end of the table
         
         var recipe : Recipe = Recipe(name: "Tortilla de patatas",
                                      image: #imageLiteral(resourceName: "tortilla"),
@@ -55,6 +56,7 @@ class ViewController: UITableViewController {
                                  "Cocer el pollo al gusto",
                                  "Juntar todos los ingredientes en un tazon y acompañar con salsa Cesar"])
         recipes.append(recipe)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
