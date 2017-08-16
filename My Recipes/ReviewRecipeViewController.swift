@@ -11,6 +11,7 @@ import UIKit
 class ReviewRecipeViewController: UIViewController {
 
     @IBOutlet weak var backgroundImageView: UIImageView!
+    @IBOutlet weak var ratingStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,22 @@ class ReviewRecipeViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.bounds
         backgroundImageView.addSubview(blurEffectView)
+        
+        //Scaling stack view which contains rating buttons
+        ratingStackView.transform = CGAffineTransform(scaleX: 0.0, y: 0.0)
+        
+        
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        //add animation
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+            self.ratingStackView.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
+        }, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
